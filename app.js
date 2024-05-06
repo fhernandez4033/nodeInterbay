@@ -18,6 +18,12 @@ app.use('/client', require('./api/router/client'))
 
 app.use('/factura', require('./api/router/factura'))
 
+app.use('/ordens', require('./api/router/ordens'))
+
+app.use('/message', require('./api/router/message'))
+
+app.use('/dashboard', require('./api/router/dashboard'))
+
 
 
 module.exports = app;

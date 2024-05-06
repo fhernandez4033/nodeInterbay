@@ -2,6 +2,11 @@ const mysql = require('mysql')
 const { promisify } = require('util')
 
 const mysqlConnection = mysql.createConnection({
+    // host: 'localhost',
+    // user: 'root',
+    // password: '',
+    // database: 'smrosalia_cobro',
+    // port: '3306'
     host: 'smrosalia.com',
     user: 'smrosalia',
     password: 'elmoreno4033@',

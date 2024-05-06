@@ -14,6 +14,18 @@ router.get("/", (req, res) => {
     }
   });
 });
+router.get("/users", (req, res) => {
+  mysqlConnection.query(
+    "SELECT COUNT(id) AS users FROM user where status != 0",
+    (err, rows, fields) => {
+      if (!err) {
+        res.json(rows);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+});
 
 router.post("/singin", (req, res) => {
   const { email, pass } = req.body;

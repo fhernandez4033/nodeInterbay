@@ -32,4 +32,18 @@ router.get("/getclient/:id", (req, res) => {
   );
 });
 
+router.get("/clients", (req, res) => {
+  mysqlConnection.query(
+    "SELECT COUNT(idCliente) AS clients FROM client where status != 0",
+    (err, rows, fields) => {
+      if (!err) {
+        res.json(rows);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+  return
+});
+
 module.exports = router;

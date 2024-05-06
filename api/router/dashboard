@@ -1,0 +1,63 @@
+const express = require("express");
+const router = express.Router();
+
+const mysqlConnection = require("../conection/conection");
+
+const jwt = require("jsonwebtoken");
+
+router.get("/clients", (req, res) => {
+  mysqlConnection.query(
+    "SELECT COUNT(idCliente) AS clients FROM client where status != 0",
+    (err, rows, fields) => {
+      if (!err) {
+        res.json(rows);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+  return
+});
+
+router.get("/facts", (req, res) => {
+  mysqlConnection.query(
+    "SELECT COUNT(idCliente) AS clients FROM client where status != 0",
+    (err, rows, fields) => {
+      if (!err) {
+        res.json(rows);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+});
+
+
+
+
+router.get("/ordens", (req, res) => {
+  mysqlConnection.query(
+    "SELECT COUNT(id) AS orden FROM orden_de_servicios where status != 0",
+    (err, rows, fields) => {
+      if (!err) {
+        res.json(rows);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+});
+router.get("/users", (req, res) => {
+  mysqlConnection.query(
+    "SELECT COUNT(id) AS users FROM user where status != 0",
+    (err, rows, fields) => {
+      if (!err) {
+        res.json(rows);
+      } else {
+        console.log(err);
+      }
+    }
+  );
+});
+
+module.exports = router;
